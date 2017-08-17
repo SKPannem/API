@@ -1,0 +1,61 @@
+{
+	"id": "31e229ac-8a68-6e78-f759-11281cc390fd",
+	"name": "Admin_Service",
+	"description": "Get Customer/Associate delivery days",
+	"order": [
+		"ef09b7ee-febe-1ad5-c5b4-ef921d8d23cf",
+		"48ac5455-5e6d-8392-ffbf-018b7081cdcf"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1502935954346,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "48ac5455-5e6d-8392-ffbf-018b7081cdcf",
+			"headers": "",
+			"headerData": [],
+			"url": "http://internal-smxplus-a-smxplusr-cycqf4219d0l-1653235710.us-east-1.elb.amazonaws.com/users/smxpluscsr\n",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "31e229ac-8a68-6e78-f759-11281cc390fd",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Get_UserPreference",
+			"description": "Get_UserPreference",
+			"descriptionFormat": "html",
+			"time": 1502936578586,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n  \"hidePrice\": true,\r\n  \"addProductsFrom\": \"true\"\r\n}"
+		},
+		{
+			"id": "ef09b7ee-febe-1ad5-c5b4-ef921d8d23cf",
+			"headers": "",
+			"headerData": [],
+			"url": "http://internal-smxplus-a-smxplusr-cycqf4219d0l-1653235710.us-east-1.elb.amazonaws.com/customers/deliveryDays/067/000281/true/0\n",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "\ntests[\"Status code is 200\"] = responseCode.code === 200;\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"firstDeliveryDate test\"] = jsonData.firstDeliveryDate === \"2017-08-18\";\ntests[\"firstSelectableDate test\"] = jsonData.firstSelectableDate === \"2017-08-18\";\ntests[\"deliveryDays test\"] = jsonData.deliveryDays[0] === \"MONDAY\";\n\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502936128748,
+			"name": "Get_Customer/Associate delivery days",
+			"description": "Get Customer/Associate delivery days",
+			"collectionId": "31e229ac-8a68-6e78-f759-11281cc390fd",
+			"responses": []
+		}
+	]
+}
